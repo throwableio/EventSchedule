@@ -1,11 +1,9 @@
 package io.throwable.eventschedule
 
 import android.app.Application
-import com.crashlytics.android.Crashlytics
 import io.throwable.eventschedule.di.AppModule
-import io.altalabs.androidbase.di.DaggerInjector
+import io.throwable.eventschedule.di.DaggerInjector
 import io.throwable.eventschedule.di.Injector
-import io.fabric.sdk.android.Fabric
 
 class App : Application() {
 
@@ -14,7 +12,7 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        Fabric.with(this, Crashlytics())
+        /*Fabric.with(this, Crashlytics())*/
 
        initDagger()
 

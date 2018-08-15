@@ -4,9 +4,9 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-kapt'/*
 
-apply plugin: 'io.fabric'
+apply plugin: 'io.fabric'*/
 
 android {
     compileSdkVersion Versions.compile_sdk
@@ -53,11 +53,11 @@ dependencies {
     implementation Libraries.room_runtime
     kapt Libraries.room_complier
 
-    implementation Libraries.firebase_crashlytics
+    /*implementation Libraries.firebase_crashlytics
 
     implementation ('com.crashlytics.sdk.android:crashlytics:2.9.4@aar') {
-        transitive = true;
-    }
+        transitive = true
+    }*/
 
     implementation Libraries.retrofit
     implementation Libraries.rxjava_adapter

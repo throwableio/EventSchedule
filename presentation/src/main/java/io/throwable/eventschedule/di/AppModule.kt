@@ -1,6 +1,7 @@
 package io.throwable.eventschedule.di
 
 import android.arch.persistence.room.Room
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import io.throwable.eventschedule.App
@@ -18,6 +19,9 @@ class AppModule(val app: App) {
     @Provides
     @Singleton
     fun provideApp(): App = app
+
+    @Provides
+    fun provideContext(): Context { return app.applicationContext}
 
     /**
      * Room Database instance

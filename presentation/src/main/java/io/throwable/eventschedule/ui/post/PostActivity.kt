@@ -4,7 +4,6 @@ import android.arch.lifecycle.ViewModelProvider
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import com.crashlytics.android.Crashlytics
 import io.altalabs.androidbase.*
 import io.throwable.eventschedule.*
 import io.throwable.eventschedule.model.PostItem
@@ -23,8 +22,8 @@ class PostActivity : AppCompatActivity() {
         getAppInjector().inject(this)
 
 
-        initViews()
-        Crashlytics.getInstance().crash()
+        initViews()/*
+        Crashlytics.getInstance().crash()*/
 
         withViewModel<PostViewModel>(viewModelFactory) {
             getPost(refresh = true)
