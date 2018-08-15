@@ -2,7 +2,7 @@ package io.throwable.eventschedule.di
 
 import dagger.Module
 import dagger.Provides
-import io.altalabs.androidbase.BuildConfig
+import io.throwable.androidbase.BuildConfig
 import io.throwable.data.remote.RemoteApi
 import io.throwable.data.repository.AppRemoteImpl
 import io.throwable.domain.repository.AppRemote

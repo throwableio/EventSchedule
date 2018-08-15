@@ -2,7 +2,7 @@ package io.throwable.eventschedule.ui.post
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import io.altalabs.androidbase.R
+import io.throwable.androidbase.R
 import io.throwable.eventschedule.inflate
 import io.throwable.eventschedule.model.PostItem
 import kotlinx.android.synthetic.main.item_post.view.*
