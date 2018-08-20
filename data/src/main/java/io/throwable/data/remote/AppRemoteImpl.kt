@@ -1,4 +1,4 @@
-package io.throwable.data.repository
+package io.throwable.data.remote
 
 import io.throwable.data.mapper.PostMapper
 import io.throwable.data.remote.RemoteApi

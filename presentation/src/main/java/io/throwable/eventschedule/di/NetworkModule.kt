@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import io.throwable.androidbase.BuildConfig
 import io.throwable.data.remote.RemoteApi
-import io.throwable.data.repository.AppRemoteImpl
+import io.throwable.data.remote.AppRemoteImpl
 import io.throwable.domain.repository.AppRemote
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
