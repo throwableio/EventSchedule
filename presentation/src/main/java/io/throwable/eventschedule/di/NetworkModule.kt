@@ -3,7 +3,7 @@ package io.throwable.eventschedule.di
 import dagger.Module
 import dagger.Provides
 import io.throwable.data.remote.RemoteApi
-import io.throwable.data.repository.AppRemoteImpl
+import io.throwable.data.remote.AppRemoteImpl
 import io.throwable.domain.repository.AppRemote
 import io.throwable.eventschedule.BuildConfig
 import okhttp3.OkHttpClient

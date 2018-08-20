@@ -21,44 +21,43 @@ class PostActivity : AppCompatActivity() {
         getAppInjector().inject(this)
 
 
-        initViews()/*
+        initViews()
+        /*
         Crashlytics.getInstance().crash()*/
 
         withViewModel<PostViewModel>(viewModelFactory) {
             getPost(refresh = true)
             observe(posts, ::updatePosts)
-        }
 
-    }
-
-    /**
-     * Views initialization
-     */
-    fun initViews() {
-
-
-
-
-        with(postsRecyclerView) {
-            adapter = postAdapter
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@PostActivity)
         }
     }
 
-    /**
-     * adapter databinding
-     * @param data [post list from the data layer]
-     */
-    private fun updatePosts(data: Data<List<PostItem>>?) {
-        data?.let {
-            when (it.dataState) {
-                DataState.LOADING -> progressBar2.showProgress()
-                DataState.SUCCESS -> progressBar2.hideProgress()
-                DataState.ERROR -> progressBar2.hideProgress()
+        /**
+         * Views initialization
+         */
+        fun initViews() {
+
+
+            with(postsRecyclerView) {
+                adapter = postAdapter
+                setHasFixedSize(true)
+                layoutManager = LinearLayoutManager(this@PostActivity)
             }
-            it.data?.let { postAdapter.addItems(it) }
-            it.message?.let { toast(it, this@PostActivity) }
+        }
+
+        /**
+         * adapter databinding
+         * @param data [post list from the data layer]
+         */
+        private fun updatePosts(data: Data<List<PostItem>>?) {
+            data?.let {
+                when (it.dataState) {
+                    DataState.LOADING -> progressBar2.showProgress()
+                    DataState.SUCCESS -> progressBar2.hideProgress()
+                    DataState.ERROR -> progressBar2.hideProgress()
+                }
+                it.data?.let { postAdapter.addItems(it) }
+                it.message?.let { toast(it, this@PostActivity) }
+            }
         }
     }
-}
