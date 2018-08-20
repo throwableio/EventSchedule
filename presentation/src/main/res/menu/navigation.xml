@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_schedule"
+        android:icon="@drawable/ic_schedule"
+        android:title="Schedule" />
+
+    <item
+        android:id="@+id/navigation_venue"
+        android:icon="@drawable/ic_location"
+        android:title="Venue" />
+
+    <item
+        android:id="@+id/navigation_speaker"
+        android:icon="@drawable/ic_microphone"
+        android:title="Speakers" />
+
+    <item
+        android:id="@+id/navigation_news"
+        android:icon="@drawable/ic_chat"
+        android:title="News" />
+
+</menu>
