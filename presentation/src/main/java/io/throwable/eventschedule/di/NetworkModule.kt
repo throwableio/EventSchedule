@@ -2,10 +2,10 @@ package io.throwable.eventschedule.di
 
 import dagger.Module
 import dagger.Provides
-import io.throwable.androidbase.BuildConfig
 import io.throwable.data.remote.RemoteApi
 import io.throwable.data.remote.AppRemoteImpl
 import io.throwable.domain.repository.AppRemote
+import io.throwable.eventschedule.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
