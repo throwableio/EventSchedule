@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_schedule"
         android:icon="@drawable/ic_schedule"
-        android:title="Schedule" />
+        android:title="Schedule"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/navigation_venue"
         android:icon="@drawable/ic_location"
-        android:title="Venue" />
+        android:title="Venue"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/navigation_speaker"
         android:icon="@drawable/ic_microphone"
-        android:title="Speakers" />
+        android:title="Speakers"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/navigation_news"
         android:icon="@drawable/ic_chat"
-        android:title="News" />
+        android:title="News"
+        app:showAsAction="ifRoom"/>
 
 </menu>

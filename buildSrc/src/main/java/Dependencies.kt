@@ -21,7 +21,7 @@ object Versions {
     val versions = "0.17.0"
 
     val compile_sdk = 28
-    val min_sdk = 17
+    val min_sdk = 23
     val target_sdk = 28
 
     val inject = "1"
@@ -44,6 +44,7 @@ object Versions {
     val lifecycle = "1.1.1"
     val room = "1.1.1"
     val rxroom = "1.0.0"
+    const val circle_image = "2.2.0"
 
     val junit = "4.12"
     val assertj_core = "3.9.1"
@@ -67,6 +68,8 @@ object Libraries {
     val rxkotlin = "io.reactivex.rxjava2:rxkotlin:${Versions.rxkotlin}"
 
     val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
+
+    val circleImage = "de.hdodenhof:circleimageview:${Versions.circle_image}"
 
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val rxjava_adapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"

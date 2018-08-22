@@ -47,6 +47,7 @@ dependencies {
 
     implementation Libraries.maps
 
+    implementation Libraries.circleImage
     implementation Libraries.timber
 
     implementation Libraries.rxkotlin
