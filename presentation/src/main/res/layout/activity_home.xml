@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeActivity">
 
+    <include
+        layout="@layout/app_toolbar_extended" />
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
@@ -14,7 +17,7 @@
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/large_toolbar" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
