@@ -31,7 +31,6 @@ class HomeActivity : AppCompatActivity(), SpeakerDetailFragment.OnFragmentIntera
             }
             R.id.navigation_speaker -> {
                 setFragment(SpeakerDetailFragment())
-                titleHolder!!.text = ("Speaker")
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_news -> {

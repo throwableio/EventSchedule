@@ -10,4 +10,5 @@
     <color name="colorRed">#E43267</color>
     <color name="colorYellow">#FDC24F</color>
     <color name="colorBackground">#FDFDFD</color>
+    <color name="colorSeparator">#B5B9C0</color>
 </resources>

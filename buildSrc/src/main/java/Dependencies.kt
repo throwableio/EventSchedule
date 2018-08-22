@@ -28,7 +28,7 @@ object Versions {
 
     val support = "28.0.0-alpha3"
     val maps = "12.0.0"
-    val constrainst_layout = "1.1.2"
+    val constrainst_layout = "2.0.0-alpha2"
 
     val kotlin = "1.2.51"
     val anko = "0.10.4"
@@ -52,6 +52,7 @@ object Versions {
     val runner = "1.0.2"
     val espresso = "3.0.2"
     val crashlytics = "2.9.3"
+    val flexbox = "1.0.0"
 }
 
 object Libraries {
@@ -89,7 +90,9 @@ object Libraries {
     val room_complier = "android.arch.persistence.room:compiler:${Versions.room}"
     val rxroom = "android.arch.persistence.room:rxjava2:${Versions.rxroom}"
 
-    val firebase_crashlytics ="com.crashlytics.sdk.android:crashlytics:${Versions.crashlytics}"
+    val firebase_crashlytics = "com.crashlytics.sdk.android:crashlytics:${Versions.crashlytics}"
+
+    val flexbox = "com.google.android:flexbox:${Versions.flexbox}"
 
 }
 
@@ -99,6 +102,7 @@ object SupportLibraries {
     val cardview_v7 = "com.android.support:cardview-v7:${Versions.support}"
     val recyclerview_v7 = "com.android.support:recyclerview-v7:${Versions.support}"
     val constraintLayout = "com.android.support.constraint:constraint-layout:${Versions.constrainst_layout}"
+    val vectorDrawables = "com.android.support:support-vector-drawable:${Versions.support}"
 }
 
 object TestLibraries {
