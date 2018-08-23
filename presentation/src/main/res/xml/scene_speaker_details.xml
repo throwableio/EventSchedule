@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@id/start"
+        app:duration="200">
+
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:moveWhenScrollAtTop="true"
+            app:touchAnchorId="@id/session_details"
+            app:touchAnchorSide="top" />
+
+        <!--<KeyFrameSet>
+            <KeyPosition
+                app:framePosition="75"
+                app:keyPositionType="pathRelative"
+                app:percentX="0.75"
+                app:target="@id/speaker_view" />
+            <KeyAttribute
+                android:elevation="4dp"
+                android:rotation="45"
+                android:rotationY="15"
+                app:framePosition="20"
+                app:target="@id/speaker_view" />
+
+            <KeyAttribute
+                android:elevation="0dp"
+                app:framePosition="25"
+                app:target="@id/speaker_view" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="80"
+                app:target="@id/speaker_view" />
+        </KeyFrameSet>-->
+
+        <KeyFrameSet>
+            <KeyPosition
+                app:keyPositionType="pathRelative"
+                app:percentX="0.65"
+                app:framePosition="45"
+                app:target="@id/collapse" />
+            <KeyAttribute
+                android:elevation="0dp"
+                app:framePosition="88"
+                app:target="@id/collapse" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="100"
+                app:target="@id/collapse" />
+        </KeyFrameSet>
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@id/collapse"
+            android:layout_width="0dp"
+            android:layout_height="382dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar">
+            <CustomAttribute
+                app:attributeName="background"
+                app:customColorDrawableValue="@android:color/transparent" />
+        </Constraint>
+
+        <Constraint
+            android:id="@id/speaker_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Constraint
+            android:id="@id/session_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/collapse" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/collapse"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar">
+            <CustomAttribute
+                app:attributeName="background"
+                app:customColorDrawableValue="@color/colorPrimary" />
+        </Constraint>
+
+        <Constraint
+            android:id="@id/speaker_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Constraint
+            android:id="@id/session_details"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+    </ConstraintSet>
+
+</MotionScene>
