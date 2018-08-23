@@ -16,6 +16,7 @@ android {
         targetSdkVersion Versions.target_sdk
         versionCode Releases.version_code
         versionName Releases.version
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner Config.testRunner
     }
 
