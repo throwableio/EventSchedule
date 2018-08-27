@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="TextView" />
+        tools:text="@tools:sample/full_names" />
 
     <TextView
         android:id="@+id/post_descr"
@@ -36,5 +36,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_title"
         app:layout_constraintVertical_bias="0.006"
-        tools:text="TextView" />
+        tools:text="@tools:sample/lorem/random" />
 </android.support.constraint.ConstraintLayout>
