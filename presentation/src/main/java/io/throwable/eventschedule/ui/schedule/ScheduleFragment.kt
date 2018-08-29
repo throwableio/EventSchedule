@@ -20,7 +20,6 @@ class ScheduleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-
     }
 
 
@@ -34,17 +33,35 @@ class ScheduleFragment : Fragment() {
         prepareMockData()
     }
 
+    /**
+     * Dummy schedule list
+      */
     private fun prepareMockData() {
         var list = mutableListOf<Schedule>()
-        list.add(Schedule("Breakfast", "7:00 PM", "Dinner Room", R.color.colorYellow))
-        list.add(Schedule("Breakfast", "7:00 PM", "Dinner Room", R.color.colorRed))
-        list.add(Schedule("Breakfast", "7:00 PM", "Dinner Room", R.color.colorYellow))
-        list.add(Schedule("Breakfast", "7:00 PM", "Dinner Room", R.color.colorRed))
-        list.add(Schedule("Breakfast", "7:00 PM", "Dinner Room", R.color.colorYellow))
-        list.add(Schedule("Breakfast", "7:00 PM", "Dinner Room", R.color.colorRed))
+        list.add(Schedule("Breakfast", "7:00 PM", "Dinner Room", ScheduleFragment.RED))
+        list.add(Schedule("Registration", "7:00 PM", "Front Desk", ScheduleFragment.YELLOW))
+        list.add(Schedule("Keynote", "7:00 PM", "Hall One", ScheduleFragment.GREEN))
+        list.add(Schedule("Speaker Session 1", "11:00 PM", "Dinner Room", ScheduleFragment.GREEN))
+        list.add(Schedule("Speaker Session 2", "9:00 PM", "Dinner Room", ScheduleFragment.GREEN))
+        list.add(Schedule("Speaker Session 3", "20:00 PM", "Dinner Room", ScheduleFragment.BLUE))
 
 
         mAdapter.addItems(list)
+    }
+
+
+    companion object {
+        @JvmField
+        val GREEN = "green"
+
+        @JvmField
+        val RED = "red"
+
+        @JvmField
+        val YELLOW = "yellow"
+
+        @JvmField
+        val BLUE = "blue"
     }
 
 }

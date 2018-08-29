@@ -1,5 +1,7 @@
 package io.throwable.eventschedule.ui.schedule
 
+import android.graphics.Color
+import android.support.annotation.ColorInt
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import io.throwable.eventschedule.R
@@ -25,7 +27,14 @@ class ScheduleAdapter: RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
             itemView.schedule_name.text = items.schedule_name
             itemView.schedule_time.text = items.schedule_time
             itemView.location.text = items.schedule_location
-            itemView.left_layout.setBackgroundColor(items.schedule_label_color)
+            val context = itemView.context
+
+            when(items.schedule_label_color){
+                ScheduleFragment.RED -> itemView.left_layout.setBackgroundColor(Color.parseColor(context.resources.getString(R.string.colorRed)))
+                ScheduleFragment.BLUE ->  itemView.left_layout.setBackgroundColor(Color.parseColor(context.resources.getString(R.string.colorBlue)))
+                ScheduleFragment.YELLOW ->  itemView.left_layout.setBackgroundColor(Color.parseColor(context.resources.getString(R.string.colorYellow)))
+                ScheduleFragment.GREEN ->  itemView.left_layout.setBackgroundColor(Color.parseColor(context.resources.getString(R.string.colorGreen)))
+            }
 
         }
     }

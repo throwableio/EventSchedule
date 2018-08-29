@@ -1,12 +1,14 @@
 package io.throwable.eventschedule.ui.home
 
 import android.os.Bundle
+import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import io.throwable.eventschedule.R
+import io.throwable.eventschedule.ui.schedule.ScheduleFragment
 import kotlinx.android.synthetic.main.activity_home.*
 import io.throwable.eventschedule.utils.BottomNavigationHelper
 import kotlinx.android.synthetic.main.app_bar_layout.*
@@ -27,7 +29,7 @@ class HomeActivity : AppCompatActivity(), SpeakerDetailFragment.OnFragmentIntera
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_schedule -> {
-                popFragment()
+                setFragment(ScheduleFragment())
                 large_toolbar.visibility = VISIBLE
                 titleLarge.text = ("Schedule")
                 return@OnNavigationItemSelectedListener true
@@ -49,7 +51,9 @@ class HomeActivity : AppCompatActivity(), SpeakerDetailFragment.OnFragmentIntera
                 titleLarge.text = ("News")
                 return@OnNavigationItemSelectedListener true
             }
+            else -> {setFragment(ScheduleFragment())}
         }
+
         false
     }
 
