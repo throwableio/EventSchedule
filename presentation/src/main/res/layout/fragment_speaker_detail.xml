@@ -5,6 +5,7 @@
     android:id="@+id/speaker_details_motion"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     app:layoutDescription="@xml/scene_speaker_details">
 
     <android.support.constraint.ConstraintLayout
@@ -15,7 +16,7 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="260dp"
-            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_marginTop="?android:attr/actionBarSize"
             android:background="@color/colorPrimary">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -34,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="Abdulrahman Abdulkarim"
+                android:text="@string/dummy_speaker_name"
                 android:textColor="@color/white"
                 android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -47,101 +48,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/speaker_name"
                 android:gravity="center"
-                android:text="Android Developer"
+                android:text="@string/dummy_speaker_spec"
                 android:textColor="@color/white"
                 android:textSize="11sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/speaker_name" />
         </android.support.constraint.ConstraintLayout>
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/speaker_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="200dp"
-            app:cardCornerRadius="3dp"
-            app:cardElevation="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="8dp">
-
-                <TextView
-                    android:id="@+id/about_speaker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/speaker_head"
-                    android:textColor="@color/textDark"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/speaker_details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/dummy_session_content"
-                    android:maxLines="3"
-                    android:textSize="13sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/about_speaker" />
-
-                <View
-                    android:id="@+id/separator"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorSeparator"
-                    app:layout_constraintTop_toBottomOf="@+id/speaker_details" />
-
-                <ImageView
-                    android:id="@+id/speaker_twitter"
-                    style="@style/SocialStyle"
-                    android:layout_marginStart="4dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/separator"
-                    app:srcCompat="@drawable/ic_twitter" />
-
-                <ImageView
-                    android:id="@+id/speaker_github"
-                    style="@style/SocialStyle"
-                    android:layout_marginEnd="4dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/separator"
-                    app:srcCompat="@drawable/ic_github" />
-
-                <ImageView
-                    android:id="@+id/speaker_facebook"
-                    style="@style/SocialStyle"
-                    android:layout_marginStart="55dp"
-                    app:layout_constraintStart_toEndOf="@+id/speaker_twitter"
-                    app:layout_constraintTop_toBottomOf="@+id/separator"
-                    app:srcCompat="@drawable/ic_facebook" />
-
-                <ImageView
-                    android:id="@+id/speaker_linked_in"
-                    style="@style/SocialStyle"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginEnd="45dp"
-                    app:layout_constraintEnd_toStartOf="@+id/speaker_github"
-                    app:layout_constraintStart_toEndOf="@+id/speaker_facebook"
-                    app:layout_constraintTop_toBottomOf="@+id/separator"
-                    app:srcCompat="@drawable/ic_linkedin"/>
-            </android.support.constraint.ConstraintLayout>
-
-        </android.support.v7.widget.CardView>
     </android.support.constraint.ConstraintLayout>
 
     <include
@@ -151,10 +64,89 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.CardView
+        android:id="@+id/speaker_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:id="@+id/about_speaker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/speaker_head"
+                android:textSize="13sp"
+                android:textColor="@color/textDark"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/speaker_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/dummy_session_content"
+                android:maxLines="3"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/about_speaker" />
+
+            <View
+                android:id="@+id/separator"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorSeparator"
+                app:layout_constraintTop_toBottomOf="@+id/speaker_details" />
+
+            <ImageView
+                android:id="@+id/speaker_twitter"
+                style="@style/SocialStyle"
+                android:layout_marginStart="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator"
+                app:srcCompat="@drawable/ic_twitter" />
+
+            <ImageView
+                android:id="@+id/speaker_github"
+                style="@style/SocialStyle"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator"
+                app:srcCompat="@drawable/ic_github" />
+
+            <ImageView
+                android:id="@+id/speaker_facebook"
+                style="@style/SocialStyle"
+                android:layout_marginStart="55dp"
+                app:layout_constraintStart_toEndOf="@+id/speaker_twitter"
+                app:layout_constraintTop_toBottomOf="@+id/separator"
+                app:srcCompat="@drawable/ic_facebook" />
+
+            <ImageView
+                android:id="@+id/speaker_linked_in"
+                style="@style/SocialStyle"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="45dp"
+                app:layout_constraintEnd_toStartOf="@+id/speaker_github"
+                app:layout_constraintStart_toEndOf="@+id/speaker_facebook"
+                app:layout_constraintTop_toBottomOf="@+id/separator"
+                app:srcCompat="@drawable/ic_linkedin"/>
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
         android:id="@+id/session_details"
         android:layout_width="match_parent"
-        app:cardElevation="3dp"
-        app:cardCornerRadius="4dp"
         android:layout_height="300dp">
 
         <android.support.constraint.ConstraintLayout
@@ -168,7 +160,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/sessions_header"
                 android:textColor="@color/textDark"
-                android:textSize="12sp"
+                android:textSize="13sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
