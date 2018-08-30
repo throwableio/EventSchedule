@@ -62,7 +62,7 @@ class HomeActivity : AppCompatActivity(), SpeakerDetailFragment.OnFragmentIntera
         setContentView(R.layout.activity_home)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         BottomNavigationHelper.disableShiftMode(navigation)
-        setFragment(ScheduleFragment())
+        navigation.selectedItemId = R.id.navigation_schedule
     }
 
     private fun setFragment(fragment: Fragment) {
