@@ -2,6 +2,7 @@ package io.throwable.eventschedule.di
 
 import android.arch.persistence.room.Room
 import android.content.Context
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
 import io.throwable.eventschedule.App
@@ -45,5 +46,12 @@ class AppModule(val app: App) {
     @Provides
     @Singleton
     fun providePreferenceHelper(ipreference: IPreferenceHelperImpl): IPreferenceHelper = ipreference
+    
+    @Provides
+    @Singleton
+    fun provideFireStore(): FirebaseFirestore = FirebaseFirestore.getInstance()
 
+    
+    
+    
 }
