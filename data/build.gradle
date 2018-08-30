@@ -30,6 +30,10 @@ dependencies {
     implementation Libraries.retrofit
     implementation Libraries.moshi
 
+
+    implementation Libraries.firebase_core
+    implementation Libraries.firebase_firestore
+
     implementation Libraries.room_runtime
     kapt Libraries.room_complier
 

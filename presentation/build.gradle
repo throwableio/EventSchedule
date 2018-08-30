@@ -16,6 +16,7 @@ android {
         targetSdkVersion Versions.target_sdk
         versionCode Releases.version_code
         versionName Releases.version
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner Config.testRunner
         vectorDrawables.useSupportLibrary = true
     }
@@ -56,6 +57,8 @@ dependencies {
         implementation ('com.crashlytics.sdk.android:crashlytics:2.9.4@aar') {
             transitive = true
         }*/
+    implementation Libraries.firebase_firestore
+
     implementation Libraries.retrofit
     implementation Libraries.rxjava_adapter
     implementation Libraries.moshi_converter

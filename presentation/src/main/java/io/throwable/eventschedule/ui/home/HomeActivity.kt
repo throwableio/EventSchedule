@@ -8,10 +8,12 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import io.throwable.eventschedule.R
+import io.throwable.eventschedule.ui.schedule.ScheduleFragment
+import io.throwable.eventschedule.ui.speakers.SpeakerDetailFragment
 import kotlinx.android.synthetic.main.activity_home.*
 import io.throwable.eventschedule.utils.BottomNavigationHelper
-import kotlinx.android.synthetic.main.app_bar_layout.*
 import kotlinx.android.synthetic.main.app_toolbar_extended.*
+
 
 
 class HomeActivity : AppCompatActivity(), SpeakerDetailFragment.OnFragmentInteractionListener {
@@ -27,29 +29,31 @@ class HomeActivity : AppCompatActivity(), SpeakerDetailFragment.OnFragmentIntera
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_schedule -> {
-                popFragment()
-                large_toolbar.visibility = VISIBLE
+                setFragment(ScheduleFragment())
+                tool.visibility = VISIBLE
                 titleLarge.text = ("Schedule")
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_venue -> {
                 popFragment()
-                large_toolbar.visibility = VISIBLE
+                tool.visibility = VISIBLE
                 titleLarge.text = ("Venue")
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_speaker -> {
                 setFragment(SpeakerDetailFragment())
-                large_toolbar.visibility = GONE
+                tool.visibility = GONE
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_news -> {
                 popFragment()
-                large_toolbar.visibility = VISIBLE
+                tool.visibility = VISIBLE
                 titleLarge.text = ("News")
                 return@OnNavigationItemSelectedListener true
             }
+            else -> {setFragment(ScheduleFragment())}
         }
+
         false
     }
 
@@ -58,6 +62,7 @@ class HomeActivity : AppCompatActivity(), SpeakerDetailFragment.OnFragmentIntera
         setContentView(R.layout.activity_home)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         BottomNavigationHelper.disableShiftMode(navigation)
+        navigation.selectedItemId = R.id.navigation_schedule
     }
 
     private fun setFragment(fragment: Fragment) {

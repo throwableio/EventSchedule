@@ -27,7 +27,7 @@ object Versions {
     val inject = "1"
 
     val support = "28.0.0-alpha3"
-    val maps = "12.0.0"
+    val maps = "15.0.1"
     val constrainst_layout = "2.0.0-alpha2"
 
     val kotlin = "1.2.51"
@@ -52,6 +52,8 @@ object Versions {
     val runner = "1.0.2"
     val espresso = "3.0.2"
     val crashlytics = "2.9.3"
+    const val firebase_core = "12.0.0"
+    const val firebase_firestore = "17.1.0"
     val flexbox = "1.0.0"
 }
 
@@ -91,6 +93,8 @@ object Libraries {
     val rxroom = "android.arch.persistence.room:rxjava2:${Versions.rxroom}"
 
     val firebase_crashlytics = "com.crashlytics.sdk.android:crashlytics:${Versions.crashlytics}"
+    val firebase_core = "com.google.firebase:firebase-core:${Versions.firebase_core}"
+    val firebase_firestore = "com.google.firebase:firebase-firestore:${Versions.firebase_firestore}"
 
     val flexbox = "com.google.android:flexbox:${Versions.flexbox}"
 
