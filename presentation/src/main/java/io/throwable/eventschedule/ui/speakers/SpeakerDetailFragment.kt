@@ -1,4 +1,4 @@
-package io.throwable.eventschedule.ui.home
+package io.throwable.eventschedule.ui.speakers
 
 import android.content.Context
 import android.os.Bundle
