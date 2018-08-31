@@ -58,6 +58,8 @@ dependencies {
             transitive = true
         }*/
     implementation Libraries.firebase_firestore
+    implementation Libraries.firebase_auth
+    implementation Libraries.play_service_auth
 
     implementation Libraries.retrofit
     implementation Libraries.rxjava_adapter
