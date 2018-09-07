@@ -28,6 +28,7 @@ object Versions {
 
     val support = "28.0.0-alpha3"
     val maps = "15.0.1"
+    val google_maps_util = "0.5+"
     val constrainst_layout = "2.0.0-alpha2"
 
     val kotlin = "1.2.51"
@@ -55,6 +56,7 @@ object Versions {
     const val firebase_core = "12.0.0"
     const val firebase_firestore = "17.1.0"
     val flexbox = "1.0.0"
+    val google_play_maps = "15.0.1"
 }
 
 object Libraries {
@@ -98,6 +100,8 @@ object Libraries {
 
     val flexbox = "com.google.android:flexbox:${Versions.flexbox}"
 
+    val google_play_maps = "com.google.android.gms:play-services-maps:${Versions.google_play_maps}"
+    val google_map_utils = "com.google.maps.android:android-maps-utils:${Versions.google_maps_util}"
 }
 
 object SupportLibraries {

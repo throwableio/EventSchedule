@@ -2,6 +2,7 @@
     <string name="app_name">Android-Base</string>
     <string name="fabric_api_key">YOUR_API_KEY</string>
     <string name="title_activity_home">Schedule</string>
+    <string name="title_activity_venue">Venue</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -13,6 +14,8 @@
     <string name="sessions_header">Sessions</string>
     <string name="speaker_head">About Speaker</string>
     <string name="dummy_date">23 \nSEPT.</string>
+    <string name="dummy_venue_name">Emerald Event Center</string>
+    <string name="dummy_venue_address">23 Nsikak Eduok Avenue, Uyo.</string>
     <string name="dummy_speaker_name">Abdulrahman Abdulkarim</string>
     <string name="dummy_speaker_spec">Android Developer</string>
 </resources>
