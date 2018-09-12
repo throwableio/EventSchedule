@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.fragment_speakers.*
  * A fragment representing a list of Items.
  * Activities containing this fragment MUST implement the
  * [SpeakersFragment.OnListFragmentInteractionListener] interface.
+ * Use the [SpeakersFragment.newInstance] factory method to
+ * create an instance of this fragment.
  */
 class SpeakersFragment : Fragment() {
 

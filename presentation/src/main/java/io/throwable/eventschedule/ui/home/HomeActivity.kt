@@ -52,7 +52,8 @@ class HomeActivity : AppCompatActivity(),
 
     }
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+    private val mOnNavigationItemSelectedListener
+            = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_schedule -> {
                 popFragment()
@@ -103,7 +104,6 @@ class HomeActivity : AppCompatActivity(),
     override fun onBackPressed() {
         when {
             fragment!! is ScheduleFragment -> {
-                Log.e("back stack", "this happens")
                 super.onBackPressed()
             }
             fragment!! is SpeakerDetailFragment -> {
@@ -121,7 +121,6 @@ class HomeActivity : AppCompatActivity(),
 
     private fun setFragment(fragment: Fragment) {
         Companion.fragment = fragment
-        //popFragment()
         supportFragmentManager
                 .beginTransaction()
                 .setTransition(FragmentTransaction.TRANSIT_ENTER_MASK)
