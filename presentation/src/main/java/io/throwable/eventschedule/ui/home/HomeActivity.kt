@@ -5,21 +5,47 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import io.throwable.eventschedule.R
+import io.throwable.eventschedule.ui.chats.ChatsFragment
 import io.throwable.eventschedule.ui.schedule.ScheduleFragment
+import io.throwable.eventschedule.ui.speakers.Speaker
 import io.throwable.eventschedule.ui.speakers.SpeakerDetailFragment
+import io.throwable.eventschedule.ui.speakers.SpeakersFragment
+import io.throwable.eventschedule.ui.venues.VenueFragment
 import kotlinx.android.synthetic.main.activity_home.*
 import io.throwable.eventschedule.utils.BottomNavigationHelper
 import kotlinx.android.synthetic.main.app_toolbar_extended.*
 
 
 
-class HomeActivity : AppCompatActivity(), SpeakerDetailFragment.OnFragmentInteractionListener {
+class HomeActivity : AppCompatActivity(),
+        SpeakerDetailFragment.OnFragmentInteractionListener,
+        SpeakersFragment.OnListFragmentInteractionListener,
+        VenueFragment.OnFragmentInteractionListener,
+        ChatsFragment.OnFragmentInteractionListener{
+    override fun onVenueChanged() {
+
+    }
+
+    override fun sendMessage(message: String) {
+
+    }
+
+    override fun onSpeakerSelected(item: Speaker) {
+        setFragment(SpeakerDetailFragment())
+        tool.visibility = GONE
+    }
+
+    override fun onSpeakerLiked(item: Speaker) {
+
+    }
 
     companion object {
         const val ROOT_FRAGMENT = "root"
+        var fragment : Fragment? = null
     }
 
     override fun onSwtichStateChanged(state: Boolean) {
@@ -29,6 +55,7 @@ class HomeActivity : AppCompatActivity(), SpeakerDetailFragment.OnFragmentIntera
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_schedule -> {
+                popFragment()
                 setFragment(ScheduleFragment())
                 tool.visibility = VISIBLE
                 titleLarge.text = ("Schedule")
@@ -38,17 +65,21 @@ class HomeActivity : AppCompatActivity(), SpeakerDetailFragment.OnFragmentIntera
                 popFragment()
                 tool.visibility = VISIBLE
                 titleLarge.text = ("Venue")
+                setFragment(VenueFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_speaker -> {
-                setFragment(SpeakerDetailFragment())
-                tool.visibility = GONE
+                popFragment()
+                setFragment(SpeakersFragment())
+                tool.visibility = VISIBLE
+                titleLarge.text = ("Speakers")
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_news -> {
                 popFragment()
                 tool.visibility = VISIBLE
-                titleLarge.text = ("News")
+                titleLarge.text = ("Chats")
+                setFragment(ChatsFragment())
                 return@OnNavigationItemSelectedListener true
             }
             else -> {setFragment(ScheduleFragment())}
@@ -61,12 +92,36 @@ class HomeActivity : AppCompatActivity(), SpeakerDetailFragment.OnFragmentIntera
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+    }
+
+    override fun onResume() {
+        super.onResume()
         BottomNavigationHelper.disableShiftMode(navigation)
         navigation.selectedItemId = R.id.navigation_schedule
     }
 
+    override fun onBackPressed() {
+        when {
+            fragment!! is ScheduleFragment -> {
+                Log.e("back stack", "this happens")
+                super.onBackPressed()
+            }
+            fragment!! is SpeakerDetailFragment -> {
+                tool.visibility = VISIBLE
+                titleLarge.text = ("Speakers")
+                setFragment(SpeakersFragment())
+            }
+            else -> {
+                navigation.selectedItemId = R.id.navigation_schedule
+                setFragment(ScheduleFragment())
+            }
+        }
+
+    }
+
     private fun setFragment(fragment: Fragment) {
-        popFragment()
+        Companion.fragment = fragment
+        //popFragment()
         supportFragmentManager
                 .beginTransaction()
                 .setTransition(FragmentTransaction.TRANSIT_ENTER_MASK)

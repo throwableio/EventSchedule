@@ -16,45 +16,45 @@ object Modules {
 }
 
 object Versions {
-    val gradle = "3.1.3"
+    const val gradle = "3.1.3"
 
-    val versions = "0.17.0"
+    const val versions = "0.17.0"
 
-    val compile_sdk = 28
-    val min_sdk = 23
-    val target_sdk = 28
+    const val compile_sdk = 28
+    const val min_sdk = 23
+    const val target_sdk = 28
 
-    val inject = "1"
+    const val inject = "1"
 
-    val support = "28.0.0-alpha3"
-    val maps = "15.0.1"
-    val constrainst_layout = "2.0.0-alpha2"
+    const val support = "28.0.0-beta01"
+    const val maps = "15.0.1"
+    const val constrainst_layout = "2.0.0-alpha2"
 
-    val kotlin = "1.2.51"
-    val anko = "0.10.4"
-    val timber = "4.7.0"
-    val rxandroid = "2.0.2"
-    val rxkotlin = "2.2.0"
-    val retrofit = "2.4.0"
-    val logging_interceptor = "3.10.0"
-    val dagger = "2.15"
-    val glide = "4.6.1"
-    val rxpaper = "1.2.0"
-    val moshi = "1.4.0"
-    val lifecycle = "1.1.1"
-    val room = "1.1.1"
-    val rxroom = "1.0.0"
+    const val kotlin = "1.2.51"
+    const val anko = "0.10.4"
+    const val timber = "4.7.0"
+    const val rxandroid = "2.0.2"
+    const val rxkotlin = "2.2.0"
+    const val retrofit = "2.4.0"
+    const val logging_interceptor = "3.10.0"
+    const val dagger = "2.15"
+    const val glide = "4.6.1"
+    const val rxpaper = "1.2.0"
+    const val moshi = "1.4.0"
+    const val lifecycle = "1.1.1"
+    const val room = "1.1.1"
+    const val rxroom = "1.0.0"
     const val circle_image = "2.2.0"
 
-    val junit = "4.12"
-    val assertj_core = "3.9.1"
-    val mockito_kotlin = "1.5.0"
-    val runner = "1.0.2"
-    val espresso = "3.0.2"
-    val crashlytics = "2.9.3"
+    const val junit = "4.12"
+    const val assertj_core = "3.9.1"
+    const val mockito_kotlin = "1.5.0"
+    const val runner = "1.0.2"
+    const val espresso = "3.0.2"
+    const val crashlytics = "2.9.3"
     const val firebase_core = "12.0.0"
     const val firebase_firestore = "17.1.0"
-    val flexbox = "1.0.0"
+    const val flexbox = "1.0.0"
 }
 
 object Libraries {
