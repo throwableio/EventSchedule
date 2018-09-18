@@ -18,4 +18,9 @@
     <string name="dummy_venue_address">23 Nsikak Eduok Avenue, Uyo.</string>
     <string name="dummy_speaker_name">Abdulrahman Abdulkarim</string>
     <string name="dummy_speaker_spec">Android Developer</string>
+
+    <string name="colorRed">#FD5587</string>
+    <string name="colorBlue">#4F8AFD</string>
+    <string name="colorYellow">#FDC24F</string>
+    <string name="colorGreen">#62D582</string>
 </resources>
