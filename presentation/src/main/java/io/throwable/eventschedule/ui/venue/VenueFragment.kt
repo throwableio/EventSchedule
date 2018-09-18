@@ -101,7 +101,7 @@ class VenueFragment: Fragment(), OnMapReadyCallback {
         addDestinationMarker(destLatLng, venue.name)
 
         addPolyLineFromOriginToDestination(DummyData.generatePolylineLatLngs())
-        this.map.moveCamera(CameraUpdateFactory.newLatLngZoom(destLatLng, 12.0f/*initial zoom*/))
+        this.map.moveCamera(CameraUpdateFactory.newLatLngZoom(destLatLng, 14.5f/*initial zoom*/))
 
     }
 
