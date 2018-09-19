@@ -18,10 +18,14 @@ import io.throwable.eventschedule.R
 import io.throwable.eventschedule.model.Venue
 import io.throwable.eventschedule.toBitmapDescriptor
 import io.throwable.eventschedule.toMarkerBitmap
+import io.throwable.eventschedule.ui.speakers.SpeakerDetailFragment
+import kotlinx.android.synthetic.main.app_toolbar_extended_venue.*
 import kotlinx.android.synthetic.main.layout_venue_bottom_navigation.*
 
 
 class VenueFragment : Fragment(), OnMapReadyCallback {
+
+    private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var map: GoogleMap
     private lateinit var sheetBehavior: BottomSheetBehavior<View>
@@ -56,9 +60,27 @@ class VenueFragment : Fragment(), OnMapReadyCallback {
         initViews()
     }
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is OnFragmentInteractionListener) {
+            listener = context
+        } else {
+            throw RuntimeException(context.toString() +
+                    " must implement OnFragmentInteractionListener")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
+    }
+
     private fun initViews() {
         initMaps()
         initBottomSheets()
+        userLarge.setOnClickListener {
+            listener!!.onUserClicked()
+        }
     }
 
     private fun initMaps() {
@@ -167,5 +189,7 @@ class VenueFragment : Fragment(), OnMapReadyCallback {
      */
     interface OnFragmentInteractionListener {
         fun onVenueChanged()
+        fun onUserClicked()
+        fun onSwitchStateChanged(state: Boolean)
     }
 }

@@ -40,6 +40,9 @@ class SpeakerDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         titleHolder.text = ("Speaker")
+        userHolder.setOnClickListener {
+            listener!!.onUserClicked()
+        }
     }
 
 
@@ -48,7 +51,8 @@ class SpeakerDetailFragment : Fragment() {
         if (context is OnFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(context.toString() +
+                    " must implement OnFragmentInteractionListener")
         }
     }
 
@@ -69,7 +73,8 @@ class SpeakerDetailFragment : Fragment() {
      * for more information.
      */
     interface OnFragmentInteractionListener {
-        fun onSwtichStateChanged(state: Boolean)
+        fun onSwitchStateChanged(state: Boolean)
+        fun onUserClicked()
     }
 
     companion object {
