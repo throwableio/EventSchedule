@@ -14,7 +14,7 @@ import io.throwable.eventschedule.ui.schedule.ScheduleFragment
 import io.throwable.eventschedule.ui.speakers.Speaker
 import io.throwable.eventschedule.ui.speakers.SpeakerDetailFragment
 import io.throwable.eventschedule.ui.speakers.SpeakersFragment
-import io.throwable.eventschedule.ui.venues.VenueFragment
+import io.throwable.eventschedule.ui.venue.VenueFragment
 import kotlinx.android.synthetic.main.activity_home.*
 import io.throwable.eventschedule.utils.BottomNavigationHelper
 import kotlinx.android.synthetic.main.app_toolbar_extended.*
@@ -63,10 +63,9 @@ class HomeActivity : AppCompatActivity(),
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_venue -> {
-                popFragment()
-                tool.visibility = VISIBLE
+                tool.visibility = GONE
                 titleLarge.text = ("Venue")
-                setFragment(VenueFragment())
+                setFragment(VenueFragment.getFragment(VenueFragment.DummyData.generateEventVenue()))
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_speaker -> {
