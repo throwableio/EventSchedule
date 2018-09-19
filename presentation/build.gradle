@@ -19,6 +19,12 @@ android {
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner Config.testRunner
         vectorDrawables.useSupportLibrary = true
+
+        resValue "string", "google_maps_key", (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "")
+    }
+
+    androidExtensions {
+        experimental = true
     }
 
     kapt { generateStubs = true }
@@ -58,6 +64,9 @@ dependencies {
             transitive = true
         }*/
     implementation Libraries.firebase_firestore
+
+    implementation Libraries.google_play_maps
+    implementation Libraries.google_map_utils
 
     implementation Libraries.retrofit
     implementation Libraries.rxjava_adapter

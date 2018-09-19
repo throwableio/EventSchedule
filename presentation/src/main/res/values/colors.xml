@@ -3,11 +3,14 @@
     <color name="colorPrimary">#1A1A54</color>
     <color name="colorPrimaryDark">#040448</color>
     <color name="colorAccent">#4F8AFD</color>
+    <color name="colorPrimaryTextLight">#CC1A1A54</color>
+    <color name="viewIndicator">#8D9CBD</color>
     <color name="white">#FFFFFF</color>
     <color name="transparent_black">#BF000000</color>
     <color name="textDark">#26272A</color>
     <color name="textLight">#52555A</color>
     <color name="colorRed">#E43267</color>
+    <color name="colorIndicatorGreen">#62D582</color>
     <color name="colorYellow">#FDC24F</color>
     <color name="colorBackground">#FDFDFD</color>
     <color name="colorSeparator">#B5B9C0</color>
