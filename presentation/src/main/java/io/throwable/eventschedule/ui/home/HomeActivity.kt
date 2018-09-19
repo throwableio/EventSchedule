@@ -5,7 +5,6 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import io.throwable.eventschedule.R
@@ -26,6 +25,7 @@ class HomeActivity : AppCompatActivity(),
         SpeakersFragment.OnListFragmentInteractionListener,
         VenueFragment.OnFragmentInteractionListener,
         ChatsFragment.OnFragmentInteractionListener{
+
     override fun onVenueChanged() {
 
     }
@@ -63,9 +63,9 @@ class HomeActivity : AppCompatActivity(),
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_venue -> {
-                tool.visibility = GONE
-                titleLarge.text = ("Venue")
+                popFragment()
                 setFragment(VenueFragment.getFragment(VenueFragment.DummyData.generateEventVenue()))
+                tool.visibility = GONE
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_speaker -> {
