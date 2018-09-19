@@ -18,14 +18,18 @@ import io.throwable.eventschedule.R
 import io.throwable.eventschedule.model.Venue
 import io.throwable.eventschedule.toBitmapDescriptor
 import io.throwable.eventschedule.toMarkerBitmap
+import io.throwable.eventschedule.ui.speakers.SpeakerDetailFragment
+import kotlinx.android.synthetic.main.app_toolbar_extended_venue.*
 import kotlinx.android.synthetic.main.layout_venue_bottom_navigation.*
 
 
-class VenueFragment: Fragment(), OnMapReadyCallback {
+class VenueFragment : Fragment(), OnMapReadyCallback {
+
+    private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var map: GoogleMap
     private lateinit var sheetBehavior: BottomSheetBehavior<View>
-    private lateinit var venue:Venue
+    private lateinit var venue: Venue
 
 
     companion object {
@@ -34,7 +38,7 @@ class VenueFragment: Fragment(), OnMapReadyCallback {
          * provides the fragment and initialises the data it needs
          * @param venue - venue details
          */
-        fun getFragment(venue: Venue):Fragment{
+        fun getFragment(venue: Venue): Fragment {
             val fragment = VenueFragment()
             val bundle = Bundle()
             bundle.putParcelable(key, venue)
@@ -44,8 +48,9 @@ class VenueFragment: Fragment(), OnMapReadyCallback {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        venue = arguments!!.getParcelable(key)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        venue = arguments!!.getParcelable(key)!!
         return inflater.inflate(R.layout.fragment_venue, container, false)
 
     }
@@ -55,18 +60,35 @@ class VenueFragment: Fragment(), OnMapReadyCallback {
         initViews()
     }
 
-    private fun initViews(){
-        initMaps()
-        initBottomSheets()
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is OnFragmentInteractionListener) {
+            listener = context
+        } else {
+            throw RuntimeException(context.toString() +
+                    " must implement OnFragmentInteractionListener")
+        }
     }
 
-    private fun initMaps(){
-        val mapFragment = childFragmentManager
-                ?.findFragmentById(R.id.map) as SupportMapFragment
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
+    }
+
+    private fun initViews() {
+        initMaps()
+        initBottomSheets()
+        userLarge.setOnClickListener {
+            listener!!.onUserClicked()
+        }
+    }
+
+    private fun initMaps() {
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
-    private fun initBottomSheets(){
+    private fun initBottomSheets() {
         sheetBehavior = BottomSheetBehavior.from(bottom_sheet)
 
         sheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
@@ -110,8 +132,9 @@ class VenueFragment: Fragment(), OnMapReadyCallback {
      * @param destLat - destination latlng value
      * @param venue - name of the venue of event
      */
-    private fun addDestinationMarker(destLat:LatLng, venue:String){
-        val balloonMarker = ( activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as (LayoutInflater))
+    private fun addDestinationMarker(destLat: LatLng, venue: String) {
+        val balloonMarker = (activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE)
+                as (LayoutInflater))
                 .inflate(R.layout.layout_venue_marker, null)
         map.addMarker(MarkerOptions()
                 .position(destLat)
@@ -123,7 +146,7 @@ class VenueFragment: Fragment(), OnMapReadyCallback {
      * draws a polyline from origin to destination
      * @param latLngs - decode list of latlngs from origin to destination
      */
-    private fun addPolyLineFromOriginToDestination(latLngs: List<LatLng>?){
+    private fun addPolyLineFromOriginToDestination(latLngs: List<LatLng>?) {
         val polyline = map.addPolyline(PolylineOptions()
                 .clickable(true)
                 .addAll(latLngs))
@@ -138,15 +161,35 @@ class VenueFragment: Fragment(), OnMapReadyCallback {
 
     object DummyData {
 
-        fun generatePolylineLatLngs():List<LatLng>{
+        fun generatePolylineLatLngs(): List<LatLng> {
 
-            val encodedPolyline = "wsx]_rho@z@i@^QdBe@`C_@fB_@?i@F[P{@LYR_@`@y@Ji@?YjB]hCStBO`@BfFhArD`AjBd@LB@EhBmHxAeGzBmJfEeQ\\eBHUH?FANKBQCSGECCVcAlCsKfBmHLW\\_@JAHGFIDYKQQKE?]]SWUU_DiEsD}F_BlAu@_AKM"
+            val encodedPolyline = "wsx]_rho@z@i@^QdBe@`C_@fB_@?i@F[P{@LYR_@`@y@Ji@?YjB]hCStBO`@" +
+                    "BfFhArD`AjBd@LB@EhBmHxAeGzBmJfEeQ\\eBHUH?FANKBQCSGECCVcAlCsKfBmHLW\\_@JAHG" +
+                    "FIDYKQQKE?]]SWUU_DiEsD}F_BlAu@_AKM"
             return PolyUtil.decode(encodedPolyline)
         }
 
-        fun generateEventVenue():Venue{
+        fun generateEventVenue(): Venue {
             return Venue("Emerald Event Center",
-                    "Four Lane Edet Akpan Avenue Uyo", 5.037690755266097,7.930806241929531)
+                    "Four Lane Edet Akpan Avenue Uyo", 5.037690755266097,
+                    7.930806241929531)
         }
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     *
+     *
+     * See the Android Training lesson [Communicating with Other Fragments]
+     * (http://developer.android.com/training/basics/fragments/communicating.html)
+     * for more information.
+     */
+    interface OnFragmentInteractionListener {
+        fun onVenueChanged()
+        fun onUserClicked()
+        fun onSwitchStateChanged(state: Boolean)
     }
 }

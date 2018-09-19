@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="2dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/speaker_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/speech_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/sailecmedium"
+            android:textColor="@color/textDark"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/speaker_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:id="@+id/speaker_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/sailecregular"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/speaker_image"
+            app:layout_constraintTop_toBottomOf="@+id/speech_title"
+            tools:text="@tools:sample/last_names" />
+
+        <TextView
+            android:id="@+id/speaker_handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/sailecregular"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@+id/speaker_image"
+            app:layout_constraintTop_toBottomOf="@+id/speaker_name"
+            tools:text="@tools:sample/first_names" />
+
+        <TextView
+            android:id="@+id/speech_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/keynote_background"
+            android:fontFamily="@font/sailecregular"
+            android:paddingBottom="2dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="2dp"
+            android:textSize="9sp"
+            app:layout_constraintStart_toEndOf="@+id/speaker_image"
+            app:layout_constraintTop_toBottomOf="@+id/speaker_handle"
+            tools:text="@tools:sample/cities" />
+
+        <ImageView
+            android:id="@+id/like_btn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="12dp"
+            android:padding="7dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_star_like" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

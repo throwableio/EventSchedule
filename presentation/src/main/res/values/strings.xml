@@ -7,7 +7,6 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dummy_session_title">Introduction to MotionLayouts</string>
     <string name="dummy_session_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</string>
@@ -23,4 +22,8 @@
     <string name="colorBlue">#4F8AFD</string>
     <string name="colorYellow">#FDC24F</string>
     <string name="colorGreen">#62D582</string>
+    <string name="sign_in">Sign In</string>
+    <string name="cancel">Not Now</string>
+    <string name="sign_in_message">Sign in to bookmark sessions , set alarm and explore other great features of the app</string>
+    <string name="sign_in_not_header">Sign in to personalize your Schedule</string>
 </resources>
